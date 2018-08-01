@@ -1,6 +1,6 @@
 <template>
   <div class="waiting">
-    Not yet available
+  Not yet available
   </div>
 </template>
 <script>

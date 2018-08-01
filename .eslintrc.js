@@ -11,7 +11,7 @@ module.exports = {
     browser: true
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: ["standard", "plugin:vue/essential", "prettier"], // activate vue related rules
+  extends: ["standard", "plugin:vue/recommended", "prettier"], // activate vue related rules
   // required to lint *.vue files
   plugins: ["vue"],
   // add your custom rules here
