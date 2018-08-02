@@ -1,13 +1,17 @@
 <template>
  
   <div>
-    <div class="card-image" />
-    <h1>eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1>
+    <app-subjects />
   </div>
 
 </template>
 <script>
-export default {};
+import Subjects from "./Subjects.vue";
+export default {
+  components: {
+    "app-subjects": Subjects
+  }
+};
 </script>
 <style scoped>
 </style>
