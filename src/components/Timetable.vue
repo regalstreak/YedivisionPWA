@@ -7,7 +7,9 @@
       v-for="(subj, index) in abhi" 
       :key="index"
       class="container">
-      <div class="demo-card-wide mdl-card mdl-shadow--3dp">
+      <div 
+        v-if="abhi[index].subject"
+        class="demo-card-wide mdl-card mdl-shadow--3dp">
         <div class="mdl-card__title">
           <h2 class="mdl-card__title-text ">{{ abhi[index].subject }}</h2>
         </div>

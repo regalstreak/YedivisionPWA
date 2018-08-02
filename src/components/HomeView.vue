@@ -1,17 +1,27 @@
 <template>
   <div>
-    <h1>Koli gayyyyyyyyyyyyyyyyyy af</h1>
+    <h5 class="container">Note: App raw and under construction please be patient lmao </h5>
 
-    <h4>Edit: no he just a cool nibba. This is prank sponsored by oNlIne yEdiViSion gang</h4>
+    <app-timetable />
+
   </div>
 </template>
 
 <script>
-export default {};
+import Timetable from "./Timetable.vue";
+export default {
+  components: {
+    "app-timetable": Timetable
+  }
+};
 </script>
 
 
 <style scoped>
+
+.container {
+  padding: 8px
+}
 .list {
   width: 100%;
   padding: 0;
