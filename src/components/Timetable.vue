@@ -1,6 +1,8 @@
 <template>
 
   <div>
+
+    <h1 class="container">Timetable</h1>
     <div 
       v-for="(picture, index) in pictures" 
       :key="index"

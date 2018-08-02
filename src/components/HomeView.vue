@@ -1,7 +1,9 @@
 <template>
-  
-  <h1>Koli gayyyyyyyyyyyyyyyyyy af</h1>
+  <div>
+    <h1>Koli gayyyyyyyyyyyyyyyyyy af</h1>
 
+    <h4>Edit: no he just a cool nibba. This is prank sponsored by oNlIne yEdiViSion gang</h4>
+  </div>
 </template>
 
 <script>

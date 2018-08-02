@@ -13,6 +13,11 @@
           to="/" 
           @click.native="hideMenu">Home</router-link>
 
+        <router-link
+          class="mdl-navigation__link"
+          to="/timetable"
+          @click.native="hideMenu">Timetable</router-link>
+
         <router-link 
           class="mdl-navigation__link" 
           to="/assignments" 

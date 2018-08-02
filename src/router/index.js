@@ -5,6 +5,7 @@ import Assignments from "@/components/Assignments";
 import Material from "@/components/Material";
 import Papers from "@/components/Papers";
 import Subjects from "@/components/Subjects";
+import Timetable from "@/components/Timetable";
 
 Vue.use(Router);
 
@@ -19,13 +20,6 @@ export default new Router({
       path: "/assignments",
       name: "Assignments",
       component: Assignments,
-      children: [
-        {
-          path: "/foo",
-          name: "Subjects",
-          component: Subjects
-        }
-      ]
     },
     {
       path: "/material",
@@ -36,6 +30,16 @@ export default new Router({
       path: "/papers",
       name: "Papers",
       component: Papers
+    },
+    {
+      path: "/subjects",
+      name: "Subjects",
+      component: Subjects
+    },
+    {
+      path: "/timetable",
+      name: "Timetable",
+      component: Timetable
     }
   ]
 });
