@@ -11,14 +11,18 @@
         v-if="abhi[index].subject"
         class="demo-card-wide mdl-card mdl-shadow--3dp">
         <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text ">{{ abhi[index].subject }}</h2>
+          <div>
+            <span class="mdl-chip">
+              <span class="mdl-chip__text">{{ index + 1 }}</span>
+            </span>
+          </div>
+          <h2 class="mdl-card__title-text ">&nbsp; {{ abhi[index].subject }}</h2>
         </div>
         
         <div class="mdl-card__supporting-text">
           Room: {{ abhi[index].room }} 
           <br>
-          Teacher: {{ abhi[index].teacher }}
-          <br>
+          <div v-if="abhi[index].teacher">Teacher: {{ abhi[index].teacher }}</div>
           Time: {{ abhi[index].time }}
         </div>
       </div>
