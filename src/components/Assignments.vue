@@ -1,7 +1,7 @@
 <template>
  
   <div>
-    <div class="card-image"></div>
+    <div class="card-image" />
     <h1>eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1>
   </div>
 
