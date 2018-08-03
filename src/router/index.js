@@ -19,7 +19,7 @@ export default new Router({
     {
       path: "/assignments",
       name: "Assignments",
-      component: Assignments,
+      component: Assignments
     },
     {
       path: "/material",
