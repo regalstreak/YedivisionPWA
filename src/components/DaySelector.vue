@@ -18,7 +18,7 @@
       <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
       <label 
         for="day-selection" 
-        class="mdl-textfield__label">Country</label>
+        class="mdl-textfield__label">Day</label>
       <ul 
         for="day-selection" 
         class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
@@ -47,18 +47,25 @@ export default {
         return ["Days empty lole"]
       }
     },
-    today: {
-      type: String,
-      default() {
-        return "Sunday"
+    timetableChild: {
+      type: Object,
+      default(){
+        return ""
       }
     }
   },
 
   data(){
     return{
-      viewDay: ""
+      viewDay: "",
+      today: null,
+      abhi: ""
     }
+  },
+
+  beforeMount(){
+    this.getTodaysDay()
+    this.abhi = this.timetableChild[this.viewDay];
   },
   
   created(){
@@ -72,14 +79,16 @@ export default {
       this.days.splice(i, 1)
     },
     viewDayUpdated(event){
-      this.$emit("viewDayWasUpdated", this.viewDay)
+      this.abhi = this.timetableChild[this.viewDay];
+      this.$emit("viewDayWasUpdated", [this.viewDay, this.abhi])
     },
     getTodaysDay() {
       var d = new Date();
       var dayNumber = d.getDay();
       this.today = this.days[dayNumber];
-      this.viewDayParent = this.today;
+      this.viewDay = this.today;
     }
+
   }
     
 }
