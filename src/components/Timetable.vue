@@ -3,11 +3,16 @@
   <div>
     
     <h1 class="container">{{ today }}</h1>
-    <div 
+    <app-day-selector 
+      :days="days"
+      :today="today"
+      @viewDayWasUpdated="viewDayParent = $event" /> 
+
+    <div
       v-for="(subj, index) in abhi" 
       :key="index"
       class="container">
-      <div 
+      <div
         v-if="abhi[index].subject"
         class="demo-card-wide mdl-card mdl-shadow--3dp">
         <div class="mdl-card__title">
@@ -34,42 +39,47 @@
 </template>
 <script>
 import data from "../data.js";
+import DaySelector from "./DaySelector.vue";
 
 export default {
+  components: {
+    "app-day-selector": DaySelector
+  },
+
   data() {
     return {
-      today: null,
-      timetable: data.Timetable_SE_A,
-      abhi: null
-    };
-  },
-
-  beforeMount() {
-    this.getTodaysDay();
-    this.abhi = this.timetable[this.today];
-  },
-
-  methods: {
-    displayDetails(id) {
-      this.$router.push({ name: "detail", params: { id: id } });
-    },
-
-    getTodaysDay() {
-      var days = [
-        "Sunday",
+      days : ["Sunday",
         "Monday",
         "Tuesday",
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday"
-      ];
+        "Saturday"],   
+      today: null,
+      viewDayParent: null,
+      timetable: data.Timetable_SE_A,
+      abhi: null
+    };
+  },
+  watch: {
+    
+  },
 
+  beforeMount() {
+    this.getTodaysDay();
+    this.abhi = this.timetable[this.viewDayParent];
+    console.log(this.viewDayParent + "bm")
+  },
+
+
+/*  methods: {
+    getTodaysDay() {
       var d = new Date();
       var dayNumber = d.getDay();
-      this.today = days[dayNumber];
+      this.today = this.days[dayNumber];
+      this.viewDayParent = this.today;
     }
-  }
+  }, */
 };
 </script>
 

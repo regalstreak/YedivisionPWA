@@ -6,6 +6,7 @@ import router from "./router";
 import VueAnalytics from "vue-analytics";
 
 import 'getmdl-select/getmdl-select.min.css'
+import 'getmdl-select/getmdl-select.min.js'
 
 Vue.config.productionTip = false;
 
