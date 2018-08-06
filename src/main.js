@@ -5,6 +5,8 @@ import App from "./App";
 import router from "./router";
 import VueAnalytics from "vue-analytics";
 
+import 'getmdl-select/getmdl-select.min.css'
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
