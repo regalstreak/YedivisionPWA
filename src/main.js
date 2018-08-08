@@ -5,6 +5,8 @@ import App from "./App";
 import router from "./router";
 import VueAnalytics from "vue-analytics";
 
+import store from "./store.js";
+
 import 'getmdl-select/getmdl-select.min.css'
 import 'getmdl-select/getmdl-select.min.js'
 
@@ -14,6 +16,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: "#app",
   router,
+  store,
   components: { App },
   template: "<App/>"
 });
@@ -22,3 +25,4 @@ Vue.use(VueAnalytics, {
   id: "UA-90021784-2",
   router
 });
+

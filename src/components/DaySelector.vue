@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex"
+
 export default {
   props: {
     timetableChild: {
@@ -52,7 +54,6 @@ export default {
   data(){
     return{
       viewDay: "",
-      today: null,
       abhi: "",
       removedDays : [
         "Monday",
@@ -63,13 +64,25 @@ export default {
     }
   },
 
+  computed: {
+    ...mapState([
+    ])
+  },
+
   created(){
       this.getTodaysDay()
       this.abhi = this.timetableChild[this.viewDay];
+      this.SET_ABHI(this.abhi)
       this.daysRemoved()
   },
 
   methods: {
+    ...mapMutations([
+      "SET_TODAY",
+      "SET_VIEW_DAY",
+      "SET_ABHI"
+    ]),
+
     daysRemoved() {
       var i = this.removedDays.indexOf(this.today)
       if(i !== -1){
@@ -78,7 +91,10 @@ export default {
     },
     viewDayUpdated(event){
       this.abhi = this.timetableChild[this.viewDay];
+      this.SET_ABHI(this.abhi)
       this.$emit("viewDayWasUpdated", [this.viewDay, this.abhi])
+      this.SET_TODAY(this.today)
+      this.SET_VIEW_DAY(this.viewDay)
     },
     getTodaysDay() {
       var d = new Date();
@@ -91,6 +107,9 @@ export default {
         this.today = this.removedDays[dayNumber - 1];
       }
       this.viewDay = this.today;
+
+      this.SET_TODAY(this.today)
+      this.SET_VIEW_DAY(this.viewDay)
     }
 
   }

@@ -4,16 +4,15 @@
 
     <h1 class="container">{{ today }}</h1>
     <app-day-selector 
-      :timetable-child="timetable"
-      @viewDayWasUpdated="abhi = $event" /> 
+      :timetable-child="timetable" /> 
 
-    <div v-if="abhi">
+    <div v-if="abhi !== null">
       <div
-        v-for="(subj, index) in abhi[1]" 
+        v-for="(subj, index) in abhi" 
         :key="index"
         class="container">
         <div
-          v-if="abhi[1][index].subject"
+          v-if="abhi[index].subject"
           class="demo-card-wide mdl-card mdl-shadow--3dp">
           <div class="mdl-card__title">
             <div>
@@ -21,14 +20,14 @@
                 <span class="mdl-chip__text">{{ index + 1 }}</span>
               </span>
             </div>
-            <h2 class="mdl-card__title-text ">&nbsp; {{ abhi[1][index].subject }}</h2>
+            <h2 class="mdl-card__title-text ">&nbsp; {{ abhi[index].subject }}</h2>
           </div>
         
           <div class="mdl-card__supporting-text">
-            Room: {{ abhi[1][index].room }} 
+            Room: {{ abhi[index].room }} 
             <br>
-            <div v-if="abhi[1][index].teacher">Teacher: {{ abhi[1][index].teacher }}</div>
-            Time: {{ abhi[1][index].time }}
+            <div v-if="abhi[index].teacher">Teacher: {{ abhi[index].teacher }}</div>
+            Time: {{ abhi[index].time }}
           </div>
         </div>
       </div>
@@ -40,6 +39,7 @@
 <script>
 import data from "../data.js";
 import DaySelector from "./DaySelector.vue";
+import { mapState, mapMutations } from "vuex"
 
 export default {
   components: {
@@ -48,11 +48,20 @@ export default {
 
   data() {
     return {
-      viewDayParent: null,
       timetable: data.Timetable_SE_A,
-      abhi: null,
-      today: "Today"
+      // today: "Today"
     };
+  },
+  computed:{
+    ...mapState([
+      "today",
+      "abhi"
+    ])
+  },
+  methods: {
+    ...mapMutations([
+
+    ])
   }
 };
 </script>
