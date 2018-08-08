@@ -4,7 +4,8 @@
     <div 
       v-for="(picture, index) in pictures" 
       :key="index"
-      class="container">
+      class="container"
+    >
       <div class="demo-card-wide mdl-card mdl-shadow--3dp">
         <div class="mdl-card__title">
           <h2 class="mdl-card__title-text">{{ picture.comment }}</h2>

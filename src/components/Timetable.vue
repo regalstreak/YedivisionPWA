@@ -4,16 +4,19 @@
 
     <h1 class="container">{{ today }}</h1>
     <app-day-selector 
-      :timetable-child="timetable" /> 
+      :timetable-child="timetable"
+    /> 
 
     <div v-if="abhi !== null">
       <div
         v-for="(subj, index) in abhi" 
         :key="index"
-        class="container">
+        class="container"
+      >
         <div
           v-if="abhi[index].subject"
-          class="demo-card-wide mdl-card mdl-shadow--3dp">
+          class="demo-card-wide mdl-card mdl-shadow--3dp"
+        >
           <div class="mdl-card__title">
             <div>
               <span class="mdl-chip">

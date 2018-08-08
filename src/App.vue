@@ -11,27 +11,32 @@
         <router-link 
           class="mdl-navigation__link"
           to="/" 
-          @click.native="hideMenu">Home</router-link>
+          @click.native="hideMenu"
+        >Home</router-link>
 
         <router-link
           class="mdl-navigation__link"
           to="/timetable"
-          @click.native="hideMenu">Timetable</router-link>
+          @click.native="hideMenu"
+        >Timetable</router-link>
 
         <router-link 
           class="mdl-navigation__link" 
           to="/assignments" 
-          @click.native="hideMenu">Assignments</router-link>
+          @click.native="hideMenu"
+        >Assignments</router-link>
 
         <router-link 
           class="mdl-navigation__link" 
           to="/papers" 
-          @click.native="hideMenu">Question banks and papers</router-link>
+          @click.native="hideMenu"
+        >Question banks and papers</router-link>
 
         <router-link 
           class="mdl-navigation__link" 
           to="/material" 
-          @click.native="hideMenu">Study material</router-link>
+          @click.native="hideMenu"
+        >Study material</router-link>
       
       </nav>
     </div>

@@ -10,27 +10,33 @@
         value=""
         class="mdl-textfield__input" 
         readonly 
-        @change="viewDayUpdated($event)">
+        @change="viewDayUpdated($event)"
+      >
       <input 
         type="hidden" 
         value="" 
-        name="day-selection">
+        name="day-selection"
+      >
       <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
       <label 
         for="day-selection" 
-        class="mdl-textfield__label">Day</label>
+        class="mdl-textfield__label"
+      >Day</label>
       <ul 
         for="day-selection" 
-        class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+        class="mdl-menu mdl-menu--bottom-left mdl-js-menu"
+      >
         <li 
           class="mdl-menu__item" 
           :data-val="today" 
-          data-selected="true">{{ today }}</li>
+          data-selected="true"
+        >{{ today }}</li>
         <li 
           v-for="(day, dayIndex) in removedDays"
           :key="dayIndex"
           class="mdl-menu__item" 
-          :data-val="day">{{ day }}</li>
+          :data-val="day"
+        >{{ day }}</li>
       </ul>
     </div>
 
