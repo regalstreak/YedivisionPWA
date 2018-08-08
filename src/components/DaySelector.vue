@@ -27,7 +27,7 @@
           :data-val="today" 
           data-selected="true">{{ today }}</li>
         <li 
-          v-for="(day, dayIndex) in days"
+          v-for="(day, dayIndex) in removedDays"
           :key="dayIndex"
           class="mdl-menu__item" 
           :data-val="day">{{ day }}</li>
@@ -41,12 +41,6 @@
 <script>
 export default {
   props: {
-    days: {
-      type: Array,
-      default() {
-        return ["Days empty lole"]
-      }
-    },
     timetableChild: {
       type: Object,
       default(){
@@ -59,24 +53,28 @@ export default {
     return{
       viewDay: "",
       today: null,
-      abhi: ""
+      abhi: "",
+      removedDays : [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"],   
     }
   },
 
-  beforeMount(){
-    this.getTodaysDay()
-    this.abhi = this.timetableChild[this.viewDay];
-  },
-  
   created(){
+      this.getTodaysDay()
+      this.abhi = this.timetableChild[this.viewDay];
       this.daysRemoved()
-      console.log(this.viewDay)
   },
 
   methods: {
     daysRemoved() {
-      var i = this.days.indexOf(this.today)
-      this.days.splice(i, 1)
+      var i = this.removedDays.indexOf(this.today)
+      if(i !== -1){
+        this.removedDays.splice(i, 1)
+      }
     },
     viewDayUpdated(event){
       this.abhi = this.timetableChild[this.viewDay];
@@ -85,7 +83,13 @@ export default {
     getTodaysDay() {
       var d = new Date();
       var dayNumber = d.getDay();
-      this.today = this.days[dayNumber];
+      if (dayNumber === 0) {
+        this.today = "Sunday"
+      } else if (dayNumber === 7) {
+        this.today = "Saturday"
+      } else{
+        this.today = this.removedDays[dayNumber - 1];
+      }
       this.viewDay = this.today;
     }
 

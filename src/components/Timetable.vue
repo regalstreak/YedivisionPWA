@@ -4,7 +4,6 @@
 
     <h1 class="container">{{ today }}</h1>
     <app-day-selector 
-      :days="days"
       :timetable-child="timetable"
       @viewDayWasUpdated="abhi = $event" /> 
 
@@ -49,17 +48,10 @@ export default {
 
   data() {
     return {
-      days : ["Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"],   
       viewDayParent: null,
       timetable: data.Timetable_SE_A,
       abhi: null,
-      aaa: 1
+      today: "Today"
     };
   }
 };
